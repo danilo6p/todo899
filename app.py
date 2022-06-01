@@ -30,6 +30,9 @@ class Task(db.Model):
 
     description = db.Column(db.String(200), nullable=False)
     """:type : str"""
+    
+    # status = db.Column(db.String(20), nullable=False)
+    # """:type : str"""
 
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     """:type : datetime"""
@@ -82,3 +85,4 @@ def update(id):
             return "Houve um erro, ao atualizar a tarefa"
     else:
         return render_template('update.html', task=task)
+    

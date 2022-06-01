@@ -8,16 +8,17 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
 <div class="container">
    <div class="page-header">
-      <h1 class="text-center text-primary">ToDo: Never forget your duties</h1>
+      <h1 class="text-center text-primary">Tarefas</h1>
    </div>
-   {% if tasks|length < 1 %} <h4 class="text-center text-warning">There are no tasks. Create one below!</h4>
+   {% if tasks|length < 1 %} <h4 class="text-center text-warning">Não há tarefas. Crie uma abaixo!</h4>
       {% else %}
       <table class="table table-striped">
          <thead>
             <tr>
-               <th>Description</th>
-               <th>Created</th>
-               <th>Actions</th>
+               <th>Nome da Tarefa</th>
+               <th>Data de Inicio</th>
+               
+               <th>Ações</th>
             </tr>
          </thead>
          <tbody>
@@ -25,6 +26,7 @@
             <tr>
                <td class="align-middle">{{ task.description }}</td>
                <td class="align-middle">{{ task.date_created.date() }}</td>
+               
                <td class="align-middle actions">
                   <a class="btn btn-success" href="/update/{{task.id}}">Update</a> |
                   <a class="btn btn-danger" href="/delete/{{task.id}}">Delete</a>
