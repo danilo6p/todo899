@@ -31,8 +31,8 @@ class Task(db.Model):
     description = db.Column(db.String(200), nullable=False)
     """:type : str"""
     
-    # status = db.Column(db.String(20), nullable=False)
-    # """:type : str"""
+    status = db.Column(db.String(20), default="A fazer")
+    """:type : str"""
 
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     """:type : datetime"""
