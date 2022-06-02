@@ -86,3 +86,17 @@ def update(id):
     else:
         return render_template('update.html', task=task)
     
+    
+
+@app.route('/start/<int:id>')
+def start(id):
+    """start route"""
+    task = Task.query.get_or_404(id)
+    task.status = "Doing"
+    try:
+        db.session.commit()
+        return redirect('/')
+    except:
+        return "Houve um erro, ao atualizar a tarefa"
+
+    
