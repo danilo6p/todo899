@@ -44,10 +44,10 @@ class Task(db.Model):
     date_done = db.Column(db.DateTime)
     """:type : datetime"""
     
-    time_spend = db.Column(db.DateTime)
+    time_spend = db.Column(db.String(20))
     """:type : datetime"""
     
-    time_estimated = db.Column(db.DateTime)
+    time_estimated = db.Column(db.String(20))
     """:type : datetime"""
  
     def __repr__(self):
