@@ -61,13 +61,18 @@ class Task(db.Model):
 def index():
     """root route"""
     if request.method == 'POST':
-        task = Task(description=request.form['description'])
+        # codigo original
+        # task = Task(description=request.form['description'])
+        task = Task()
+        task.description = request.form['description']
+        task.time_estimated = request.form['time_estimated']
         try:
             db.session.add(task)
             db.session.commit()
             return redirect('/')
         except:
             return "Houve um erro, ao inserir a tarefa"
+        
     else:
         tasks = Task.query.order_by(Task.date_created).all()
         return render_template('index.html', tasks=tasks)
