@@ -98,5 +98,16 @@ def start(id):
         return redirect('/')
     except:
         return "Houve um erro, ao atualizar a tarefa"
+    
+@app.route('/done/<int:id>')
+def done(id):
+    """start route"""
+    task = Task.query.get_or_404(id)
+    task.status = "Done"
+    try:
+        db.session.commit()
+        return redirect('/')
+    except:
+        return "Houve um erro, ao atualizar a tarefa"
 
     
