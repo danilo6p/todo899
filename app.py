@@ -7,6 +7,7 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+
 app = Flask(__name__)
 Bootstrap(app)
 
@@ -35,6 +36,18 @@ class Task(db.Model):
     """:type : str"""
 
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    """:type : datetime"""
+    
+    date_doing = db.Column(db.DateTime)
+    """:type : datetime"""
+    
+    date_done = db.Column(db.DateTime)
+    """:type : datetime"""
+    
+    time_spend = db.Column(db.DateTime)
+    """:type : datetime"""
+    
+    time_estimated = db.Column(db.DateTime)
     """:type : datetime"""
  
     def __repr__(self):
@@ -93,6 +106,7 @@ def start(id):
     """start route"""
     task = Task.query.get_or_404(id)
     task.status = "Doing"
+    task.date_doing = datetime.now()
     try:
         db.session.commit()
         return redirect('/')
@@ -104,6 +118,8 @@ def done(id):
     """start route"""
     task = Task.query.get_or_404(id)
     task.status = "Done"
+    task.date_done = datetime.now()
+    # task.time_spend = task.date_done - task.date_doing
     try:
         db.session.commit()
         return redirect('/')
