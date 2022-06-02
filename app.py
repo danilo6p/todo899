@@ -119,9 +119,11 @@ def done(id):
     task = Task.query.get_or_404(id)
     task.status = "Done"
     task.date_done = datetime.now()
-    print( task.date_done)
-    # task.date_done - task.date_doing
-    # task.time_spend = task.date_done - task.date_doing
+    time = task.date_done - task.date_doing
+    
+    time2 = str(time)
+    task.time_spend = time2[0:7]
+    
     try:
         db.session.commit()
         return redirect('/')
