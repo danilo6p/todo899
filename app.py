@@ -45,10 +45,13 @@ class Task(db.Model):
     """:type : datetime"""
     
     time_spend = db.Column(db.String(20))
-    """:type : datetime"""
+    """:type : string"""
     
     time_estimated = db.Column(db.String(20))
-    """:type : datetime"""
+    """:type : string"""
+    
+    category = db.Column(db.String(50))
+    """:type : string"""
  
     def __repr__(self):
         """override __repr__ method"""
@@ -66,6 +69,7 @@ def index():
         task = Task()
         task.description = request.form['description']
         task.time_estimated = request.form['time_estimated']
+        task.category = request.form['category']
         try:
             db.session.add(task)
             db.session.commit()

@@ -16,6 +16,7 @@
          <thead>
             <tr>
                <th>Nome da Tarefa</th>
+               <th>Categoria</th>
                <th>Data de Criação</th>
                <th>Tempo estimado</th>
                <th>Tempo gasto</th>
@@ -27,6 +28,7 @@
             {% for task in tasks %}
             <tr>
                <td class="align-middle">{{ task.description }}</td>
+               <td class="align-middle">{{ task.category }}</td>
                <td class="align-middle">{{ task.date_created.date() }}</td>
                <td class="align-middle">{{ task.time_estimated }}</td>
                <td class="align-middle">{{ task.time_spend }}</td>
@@ -52,6 +54,13 @@
             <input type="text" class="form-control" name="description" id="description">
             <label for="description">Tempo Estimado: </label>
             <input type="text" class="form-control" name="time_estimated" id="time_estimated">
+            <label for="description">Categoria: </label>
+            <select name="category" id="category" class="form-control" >
+               <option value="Processsamento Paralelo">Processsamento Paralelo</option>
+               <option value="Engenharia de Software">Engenharia de Software</option>
+               <option value="Sistema Distribuido">Sistema Distribuido</option>
+               <option value="Seguranca e Auditoria">Segurança e Auditoria</option>
+            </select>
             <button type="submit" class="btn btn-primary">Add</button>
          </div>
       </form>
