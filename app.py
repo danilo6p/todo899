@@ -7,7 +7,6 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-
 app = Flask(__name__)
 Bootstrap(app)
 
@@ -20,42 +19,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# application models.
 
-
-class Task(db.Model):
-    """model to store a task data"""
-
-    id = db.Column(db.Integer, primary_key=True)
-    """:type : int"""
-
-    description = db.Column(db.String(200), nullable=False)
-    """:type : str"""
-    
-    status = db.Column(db.String(20), default="A fazer")
-    """:type : str"""
-
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    """:type : datetime"""
-    
-    date_doing = db.Column(db.DateTime)
-    """:type : datetime"""
-    
-    date_done = db.Column(db.DateTime)
-    """:type : datetime"""
-    
-    time_spend = db.Column(db.String(20))
-    """:type : string"""
-    
-    time_estimated = db.Column(db.String(20))
-    """:type : string"""
-    
-    category = db.Column(db.String(50))
-    """:type : string"""
  
-    def __repr__(self):
-        """override __repr__ method"""
-        return f"Task: #{self.id}, content: {self.description}"
+    
 
 # routes and handlers.
 
