@@ -1,11 +1,15 @@
-# Acesso
-
-Acesso a plataforma:
-http://task-flask-app.azurewebsites.net/
-
 # ToDO
 
 ToDo is a simple task manager coded in Python and Flask.
+
+## Projeto Acadêmico 
+Engenharia de Software 3 <br>
+Ciências da Computação  <br>
+Puc Minas- Campus Poços de Caldas.
+ 
+## Equipe
+Danilo Acácio de Abreu <br>
+Anderson Henrique da Rosa
 
 ## Installation
 
@@ -41,6 +45,9 @@ flask run
 ```
 
 Finally, access the address http://localhost:5000 in your browser to manage your duties ;-)
+
+## Projeto Funcional: Deploy feito na Microsoft Azure 
+https://task-flask-app.azurewebsites.net
  
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
