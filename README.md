@@ -1,3 +1,8 @@
+# Acesso
+
+Acesso a plataforma:
+http://task-flask-app.azurewebsites.net/
+
 # ToDO
 
 ToDo is a simple task manager coded in Python and Flask.
